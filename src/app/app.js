@@ -18,6 +18,7 @@ angular.module(MODULE_NAME, [])
         snippet: 'The Next, Next Generation tablet.'
       }
     ]
+    $scope.name = 'world'
   })
 
 export default MODULE_NAME
