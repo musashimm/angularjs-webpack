@@ -1,20 +1,15 @@
-import app from './app';
+import app from './app'
 
 describe('app', () => {
-
-  describe('AppCtrl', () => {
-    let ctrl;
-
+  describe('PhoneListController', () => {
     beforeEach(() => {
-      angular.mock.module(app);
+      angular.mock.module(app)
+    })
 
-      angular.mock.inject(($controller) => {
-        ctrl = $controller('AppCtrl', {});
-      });
-    });
-
-    it('should contain the starter url', () => {
-      expect(ctrl.url).toBe('https://github.com/preboot/angular-webpack');
-    });
-  });
-});
+    it('should create a `phones` model with 3 phones', inject(function($controller) {
+      var scope = {}
+      var ctrl = $controller('PhoneListController', {$scope: scope})
+      expect(scope.phones.length).toBe(3)
+    }))
+  })
+})
