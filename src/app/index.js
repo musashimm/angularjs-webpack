@@ -1,4 +1,4 @@
 import '../style/app.css'
 
-import './app'
-import './phone-list.component'
+import './app.module'
+import './phone-list/phone-list.component'

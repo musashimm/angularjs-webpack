@@ -1,17 +1,11 @@
 import angular from 'angular'
+import './phone-list.module'
+import template from './phone-list.html'
 
 angular
-  .module('app')
+  .module('phoneList')
   .component('phoneList', {
-    template:
-        '<h2>Hello {{ $ctrl.name }}</h2>' +
-        '<ul>' +
-          '<li ng-repeat="phone in $ctrl.phones">' +
-            '<span>{{phone.name}}</span>' +
-            '<p>{{phone.snippet}}</p>' +
-          '</li>' +
-        '</ul>' +
-        '<p>Total number of phones: {{$ctrl.phones.length}}</p>',
+    template: template,
     controller: function PhoneListController () {
       this.phones = [
         {

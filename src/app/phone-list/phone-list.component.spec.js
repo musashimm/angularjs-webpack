@@ -1,9 +1,9 @@
-import app from './app'
+import phoneList from './phone-list.module'
 
-describe('app', () => {
+describe('phoneList', () => {
   describe('phoneList', () => {
     beforeEach(() => {
-      angular.mock.module(app)
+      angular.mock.module(phoneList)
     })
 
     it('should create a `phones` model with 3 phones', inject(function($componentController) {
