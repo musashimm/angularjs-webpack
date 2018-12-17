@@ -5,19 +5,25 @@
 import phoneList from './phone-list.module'
 
 describe('phoneList', () => {
-  describe('phoneList', () => {
-    beforeEach(() => {
-      angular.mock.module(phoneList)
+  beforeEach(angular.mock.module(phoneList))
+
+  describe('phoneListController', () => {
+    var ctrl
+
+    beforeEach(inject(function ($componentController) {
+      ctrl = $componentController('phoneList')
+    }))
+
+    it('should create a `phones` model with 3 phones', function () {
+      expect(ctrl.phones.length).toBe(3)
     })
 
-    it('should create a `phones` model with 3 phones', inject(function ($componentController) {
-      var ctrl = $componentController('phoneList')
-      expect(ctrl.phones.length).toBe(3)
-    }))
-
-    it('should has name', inject(function ($componentController) {
-      var ctrl = $componentController('phoneList')
+    it('should has name', function () {
       expect(ctrl.name).toBe('world')
-    }))
+    })
+
+    it('should set a default value for the `orderProp` model', function () {
+      expect(ctrl.orderProp).toBe('age')
+    })
   })
 })
