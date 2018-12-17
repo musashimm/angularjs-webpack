@@ -1,3 +1,7 @@
+/* eslint no-undef: "error" */
+/* eslint-env jasmine, protractor */
+/* global angular, inject */
+
 import phoneList from './phone-list.module'
 
 describe('phoneList', () => {
@@ -6,12 +10,12 @@ describe('phoneList', () => {
       angular.mock.module(phoneList)
     })
 
-    it('should create a `phones` model with 3 phones', inject(function($componentController) {
+    it('should create a `phones` model with 3 phones', inject(function ($componentController) {
       var ctrl = $componentController('phoneList')
       expect(ctrl.phones.length).toBe(3)
     }))
 
-    it('should has name', inject(function($componentController) {
+    it('should has name', inject(function ($componentController) {
       var ctrl = $componentController('phoneList')
       expect(ctrl.name).toBe('world')
     }))
