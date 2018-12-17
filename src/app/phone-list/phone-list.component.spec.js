@@ -8,14 +8,20 @@ describe('phoneList', () => {
   beforeEach(angular.mock.module(phoneList))
 
   describe('phoneListController', () => {
-    var ctrl
+    var $httpBackend, ctrl
 
-    beforeEach(inject(function ($componentController) {
+    beforeEach(inject(function ($componentController, _$httpBackend_) {
       ctrl = $componentController('phoneList')
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('data/phones.json')
+        .respond([{ name: 'Nexus S' }, { name: 'Motorola DROID' }])
     }))
 
-    it('should create a `phones` model with 3 phones', function () {
-      expect(ctrl.phones.length).toBe(3)
+    it('should create a `phones` model with 2 phones', function () {
+      expect(ctrl.phones).toEqual([])
+
+      $httpBackend.flush()
+      expect(ctrl.phones.length).toBe(2)
     })
 
     it('should has name', function () {
