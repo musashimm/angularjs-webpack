@@ -12,7 +12,7 @@ describe('phoneList', () => {
 
     beforeEach(inject(function ($componentController, _$httpBackend_) {
       ctrl = $componentController('phoneList')
-      $httpBackend = _$httpBackend_;
+      $httpBackend = _$httpBackend_
       $httpBackend.expectGET('data/phones.json')
         .respond([{ name: 'Nexus S' }, { name: 'Motorola DROID' }])
     }))
