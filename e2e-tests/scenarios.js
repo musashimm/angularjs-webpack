@@ -5,7 +5,6 @@
 // https://docs.angularjs.org/guide/e2e-testing
 
 describe('Application', function () {
-
   it('should redirect `index.html` to `index.html#!/phones', function () {
     browser.get('index.html')
     expect(browser.getCurrentUrl()).toContain('index.html#!/phones')
