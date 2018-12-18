@@ -24,7 +24,8 @@
   },
   "homepage": "https://github.com/preboot/angularjs-webpack",
   "dependencies": {
-    "angular": "^1.7.0"
+    "angular": "^1.7.0",
+    "bootstrap": "3.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
