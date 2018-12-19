@@ -6,7 +6,7 @@
         <input ng-model="$ctrl.query">
       </p>
       <p>
-        <span>{{ $ctrl.phones | filter:$ctrl.query }}</span>
+        <span>Found {{ selected.length }} phones.</span>
       </p>
       <p>
         Sort by:
@@ -18,7 +18,7 @@
     </div>
     <div class="col-md-10">
       <ul class="phones">
-        <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.query | orderBy:$ctrl.orderProp" class="thumbnail">
+        <li ng-repeat="phone in $ctrl.phones | orderBy:$ctrl.orderProp | filter:$ctrl.query as selected" class="thumbnail">
           <a href="#!/phones/{{phone.id}}" class="thumb">
             <img ng-src="{{phone.imageUrl}}" alt="{{phone.name}}" />
           </a>

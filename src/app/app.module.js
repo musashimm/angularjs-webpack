@@ -7,5 +7,6 @@ import './phone-detail/phone-detail.module'
 angular.module('app', [
   'ngRoute',
   'phoneList',
-  'phoneDetail'
+  'phoneDetail',
+  'core'
 ])
