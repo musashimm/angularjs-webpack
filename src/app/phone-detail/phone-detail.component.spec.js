@@ -2,30 +2,37 @@
 /* eslint-env jasmine, protractor */
 /* global angular, inject */
 
-// import '../app.module'
-// import '../app.config'
-// import phoneDetail from './phone-detail.module'
+import '../app.module'
+import '../app.config'
+import phoneDetail from './phone-detail.module'
 
-// describe('phoneDetail', function () {
-//   beforeEach(angular.mock.module(phoneDetail))
+describe('phoneDetail', function () {
+  beforeEach(angular.mock.module(phoneDetail))
 
-//   describe('PhoneDetailController', function () {
-//     var $httpBackend, ctrl
+  describe('PhoneDetailController', function () {
+    var $httpBackend, ctrl
 
-//     beforeEach(inject(function ($componentController, _$httpBackend_, $routeParams) {
-//       $httpBackend = _$httpBackend_
-//       $httpBackend.expectGET('data/xyz.json').respond({ name: 'phone xyz' })
+    var xyzPhoneData = {
+      name: 'phone xyz',
+      images: ['image/url1.png', 'image/url2.png']
+    }
 
-//       $routeParams.phoneId = 'xyz'
+    beforeEach(inject(function ($componentController, _$httpBackend_, $routeParams) {
+      $httpBackend = _$httpBackend_
+      $httpBackend.expectGET('data/xyz.json').respond(xyzPhoneData)
 
-//       ctrl = $componentController('phoneDetail')
-//     }))
+      $routeParams.phoneId = 'xyz'
 
-//     it('should fetch the phone details', function () {
-//       expect(ctrl.phone).toBeUndefined()
+      ctrl = $componentController('phoneDetail')
+    }))
 
-//       $httpBackend.flush()
-//       expect(ctrl.phone).toEqual({ name: 'phone xyz' })
-//     })
-//   })
-// })
+    it('should fetch the phone details', function () {
+      jasmine.addCustomEqualityTester(angular.equals)
+
+      expect(ctrl.phone).toEqual({})
+
+      $httpBackend.flush()
+      expect(ctrl.phone).toEqual(xyzPhoneData)
+    })
+  })
+})

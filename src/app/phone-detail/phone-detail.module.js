@@ -1,5 +1,8 @@
 import angular from 'angular'
 
-angular.module('phoneDetail', [])
+angular.module('phoneDetail', [
+  'ngRoute',
+  'core.phone'
+])
 
 export default 'phoneDetail'

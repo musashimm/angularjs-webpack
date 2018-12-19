@@ -18,10 +18,11 @@ describe('phoneList', () => {
     }))
 
     it('should create a `phones` model with 2 phones', function () {
+      jasmine.addCustomEqualityTester(angular.equals)
       expect(ctrl.phones).toEqual([])
 
       $httpBackend.flush()
-      expect(ctrl.phones.length).toBe(2)
+      expect(ctrl.phones).toEqual([{ name: 'Nexus S' }, { name: 'Motorola DROID' }])
     })
 
     it('should has name', function () {

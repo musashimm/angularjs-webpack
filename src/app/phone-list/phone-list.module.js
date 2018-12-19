@@ -1,5 +1,5 @@
 import angular from 'angular'
 
-angular.module('phoneList', [])
+angular.module('phoneList', ['core.phone'])
 
 export default 'phoneList'
