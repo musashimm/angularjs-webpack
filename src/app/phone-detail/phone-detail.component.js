@@ -6,9 +6,13 @@ angular
   .module('phoneDetail')
   .component('phoneDetail', {
     template: template,
-    controller: ['$routeParams',
-      function PhoneDetailController ($routeParams) {
-        this.phoneId = $routeParams.phoneId
+    controller: ['$http', '$routeParams',
+      function PhoneDetailController ($http, $routeParams) {
+        var self = this
+
+        $http.get('data/' + $routeParams.phoneId + '.json').then(function (response) {
+          self.phone = response.data
+        })
       }
     ]
   })
